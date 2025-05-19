@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 const HomeCard = ({product}) => {
     return (
         <div className={`col-md-3 ${styles.col}`}>
-            <Link to="/products/slug">
+            {/* /products/ zaczyna od niowa a products/ dodaje do linku */}
+            <Link to={`/products/${product.slug}`}>
                 <div className={styles.card}>
                     <div className={styles.cardImgWrapper}>
                         <img src={`${BASE_URL}${product.image}`} className={styles.cardImgTop} alt="Product Image" />
