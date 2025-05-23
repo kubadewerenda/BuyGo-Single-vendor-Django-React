@@ -6,12 +6,41 @@ import { BASE_URL } from '../../api';
 import api from '../../api';
 
 
-const ProductPage = () => {
+const ProductPage = ({setNumCartItems}) => {
     const { slug } = useParams();
     const [product, setProduct] = useState({});
     const [similarProducts, setSimilarProducts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [inCart, setInCart] = useState(false);
+    const cart_code = localStorage.getItem("cart_code");
 
+    useEffect(() => {
+        if(product.id){
+            //w widoku w backendzie szukamy tego po query_params czyli z linku tak jak tutaj nizej
+            api.get(`product_in_cart?cart_code=${cart_code}&product_id=${product.id}`)
+            .then(res => {
+                console.log(res.data);
+                setInCart(res.data.product_in_cart);
+            })
+            .catch(err => {
+                console.log(err.message);
+            })   
+        }
+    }, [cart_code, product.id])
+
+    const newItem = {cart_code: cart_code, product_id: product.id};
+
+    function add_item(){
+        api.post("add_item/", newItem)
+        .then(res => {
+            console.log(res.data);
+            setInCart(true);
+            setNumCartItems(n => n + 1);
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
+    }
 
     useEffect(() => {
         setLoading(true);
@@ -53,16 +82,18 @@ const ProductPage = () => {
                             <p className="lead">
                                 {product.description}
                             </p>
-                            <div className="d-flex">
-                                
+                            <div className="d-flex">                                
                                 <button
                                 className="btn btn-outline-dark flex-shrink-0"
                                 type="button"
+                                onClick={add_item}
+                                disabled={inCart}
                                 >
                                 <i className="bi-cart-fill me-1"></i>
-                                Add to cart
+                                {inCart ? "Added to cart" : "Add to cart"}
                                 </button>
                             </div>
+                            {inCart && <p className="small mt-2">To edit visit your cart</p>}
                         </div>
                     </div>
                 </div>

@@ -4,11 +4,18 @@ import api from "../../api";
 import { useEffect, useState } from "react";
 import PlaceHolderContainer from "../ui/PlaceHolderContainer";
 import Error from "../ui/Error";
+import { randomValue } from "../../GenerateCartCode";
 
 const HomePage = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    useEffect(() => {
+        if(localStorage.getItem("cart_code") === null){
+            localStorage.setItem("cart_code", randomValue) 
+        }
+    }, [])
 
     useEffect(() => {
         setLoading(true);
