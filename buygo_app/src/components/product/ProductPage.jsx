@@ -4,6 +4,7 @@ import RelatedProducts from './RelatedProducts';
 import { useEffect, useState } from 'react';
 import { BASE_URL } from '../../api';
 import api from '../../api';
+import { toast } from 'react-toastify';
 
 
 const ProductPage = ({setNumCartItems}) => {
@@ -35,6 +36,7 @@ const ProductPage = ({setNumCartItems}) => {
         .then(res => {
             console.log(res.data);
             setInCart(true);
+            toast.success("Added to cart - check it out!");
             setNumCartItems(n => n + 1);
         })
         .catch(err => {
