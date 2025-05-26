@@ -3,7 +3,7 @@ import { BASE_URL } from "../../api"
 import api from "../../api";
 import { toast } from "react-toastify";
 
-const CartItem = ({item, setCartTotal, cartItems, setNumCartItems}) => {
+const CartItem = ({item, setCartTotal, cartItems, setCartItems, setNumCartItems}) => {
     const [quantity, setQuantity] = useState(item.quantity);
     const [loading, setLoading] = useState(false);
 
@@ -19,6 +19,16 @@ const CartItem = ({item, setCartTotal, cartItems, setNumCartItems}) => {
             api.post("delete_cartitem/", itemID)
             .then(res => {
                 console.log(res.data);
+                toast.success("Product removed successfully!");
+                //przechodzi i zostawia tylko itemy ktory maja rozny id od tego co usowamy
+                setCartItems(cartItems.filter(cartItem => cartItem.id != item.id));
+
+                //do updatowania map do usowania filter
+                setCartTotal(cartItems.filter((cartItem) => cartItem.id != item.id)
+                .reduce((acc, curr) => acc + curr.total, 0))
+
+                setNumCartItems(cartItems.filter((cartItem) => cartItem.id != item.id)
+                .reduce((acc, curr) => acc + curr.quantity, 0))
             })
             .catch(err => {
                 console.log(err.message);
