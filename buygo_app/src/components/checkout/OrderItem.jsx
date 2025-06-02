@@ -1,6 +1,8 @@
 import { BASE_URL } from "../../api"
 
 const OrderItem = ({cartItem}) => {
+    const total = cartItem.quantity * cartItem.product.price;
+    total.toFixed(2);
     return (
         <div className="d-flex justify-content-between align-items-center mb-3" style={{padding: "10px 0"}}>
             <div className="d-flex align-items-center">
@@ -15,7 +17,7 @@ const OrderItem = ({cartItem}) => {
                 <small>{`Quantity: ${cartItem.quantity}`}</small>
             </div>
         </div>
-        <h6>{`${cartItem.product.price}$`}</h6>
+        <h6>{`${total}$`}</h6>
     </div>
     )
 }
