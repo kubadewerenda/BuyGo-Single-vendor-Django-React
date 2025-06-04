@@ -66,9 +66,12 @@ def product_in_cart(request):
 @api_view(["GET"])
 def get_cart_stat(request):
     cart_code = request.query_params.get("cart_code")#Params z frontendu
-    cart = Cart.objects.get(cart_code=cart_code, paid=False)
-    serializer = SimpleCartSerializer(cart)
-    return Response(serializer.data)
+    try:
+        cart = Cart.objects.get(cart_code=cart_code, paid=False)
+        serializer = SimpleCartSerializer(cart)
+        return Response(serializer.data)
+    except Cart.DoesNotExist:
+        return Response({"error": "Cart not found"}, status=404)
 
 @api_view(["GET"])
 def get_cart(request):

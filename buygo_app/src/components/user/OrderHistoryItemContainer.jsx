@@ -11,10 +11,6 @@ const OrderHistoryItemContainer = ({orderItems}) => {
 
                 {orderItems.map(item => <OrderHistoryItem key={item.id} item={item} />)}
         
-
-
-
-            
             </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ const HomeCard = ({product}) => {
     return (
         <div className={`col-md-3 ${styles.col}`}>
             {/* /products/ zaczyna od niowa a products/ dodaje do linku */}
-            <Link to={`/products/${product.slug}`}>
+            <Link to={`/products/${product.slug}`} className={styles.link}>
                 <div className={styles.card}>
                     <div className={styles.cardImgWrapper}>
                         <img src={`${BASE_URL}${product.image}`} className={styles.cardImgTop} alt="Product Image" />

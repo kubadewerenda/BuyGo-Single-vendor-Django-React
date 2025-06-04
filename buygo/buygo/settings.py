@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-z#p3!#6!btkju9!r83(y@!9z%-&8lj%$((p6^)=q9azuo3^doj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["myshop-api-uv0o.onrender.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -65,6 +65,7 @@ CORS_ALLOWED_ORIGINS = [
 "http://localhost:5173",
 "http://localhost:5174",
 "http://localhost:5175",
+"https://buygo.onrender.com",
 ]
 
 ROOT_URLCONF = 'buygo.urls'

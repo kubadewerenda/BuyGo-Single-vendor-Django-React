@@ -22,7 +22,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright Section */}
-            <p className="small mb-0">&copy; 2025 Buygo</p>
+            <p className="small mb-0">&copy; 2025 BuyGo</p>
         </div>
     </footer>
   )

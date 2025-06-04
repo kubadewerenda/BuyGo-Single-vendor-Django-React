@@ -12,7 +12,6 @@ const UserInfo = ({userInfo}) => {
         />
         <h4>{userInfo.username}</h4>
         <p className="text-muted">{userInfo.email}</p>
-        <button className="btn  mt-2" style={{ backgroundColor: '#6050DC', color: 'white' }}>Edit Profile</button>
         </div>
         <div className="col-md-9">
         <div className="card">

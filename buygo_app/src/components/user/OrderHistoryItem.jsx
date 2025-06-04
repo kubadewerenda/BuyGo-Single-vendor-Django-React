@@ -11,7 +11,7 @@ const OrderHistoryItem = ({item}) => {
                 <div className="row">
                     <div className="col-md-2">
                         <img
-                            src={`${BASE_URL}/${item.product.image}`}
+                            src={`${BASE_URL}${item.product.image}`}
                             alt="Order Item"
                             className="img-fluid"
                             style={{ borderRadius: '5px' }}

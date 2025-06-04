@@ -2,8 +2,10 @@
     margin-bottom: 1rem;
   }
   
-  .link{
-  text-decoration: none;
+  .link,
+  .link * {
+    text-decoration: none !important;
+    color: inherit !important;
   } 
   
     
@@ -35,6 +37,7 @@
     }
     
     .cardTitle {
+      text-decoration: none;
       font-size: 1rem;
       color: black;
       /* font-weight: bold; */
@@ -42,6 +45,7 @@
     }
     
     .cardText {
+      text-decoration: none;
       font-size: 0.9rem;
       color: black;
       /* color: #6c757d;  Bootstrap's text-muted color */
