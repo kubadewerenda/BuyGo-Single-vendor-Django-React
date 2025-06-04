@@ -64,13 +64,12 @@
 - npm / yarn
 - SQLite
 - pip + virtualenv (recommended)
-- 
 ---
 
-### Backend Setup (Django)
+### Comand Prompts
 
 ```bash
-# Clone git
+## Backend setup
 git clone https://github.com/kubadewerenda/BuyGo-Single-vendor-Django-React.git
 cd BuyGo-Single-vendor-Django-React
 cd buygo
@@ -88,7 +87,7 @@ python manage.py migrate
 # Start server
 python manage.py runserver
 
-# Frontend setup
+## Frontend setup
 cd buygo_app
 
 # Install dependencies
