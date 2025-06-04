@@ -27,7 +27,7 @@
 | Auth        | JWT (Simple JWT)             |
 | DB          | MariaDB / SQLite             |
 | Payment     | Flutterwave, PayPal          |
-| Styling     | Tailwind CSS / CSS Modules   |
+| Styling     | CSS Modules                  |
 
 
 ---
