@@ -6,6 +6,7 @@ import Spinner from '../ui/Spinner';
 
 const UserProfilePage = () => {
     const [userInfo, setUserInfo] = useState({});
+    const [orderItems, setOrderItems] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -14,6 +15,7 @@ const UserProfilePage = () => {
         .then(res => {
             console.log(res.data);
             setUserInfo(res.data);
+            setOrderItems(res.data.items);
             setLoading(false);
         })
         .catch(err => {
@@ -34,7 +36,7 @@ const UserProfilePage = () => {
             
 
             {/* Order History */}
-            <OrderHistoryItemContainer />
+            <OrderHistoryItemContainer orderItems={orderItems} />
             
         </div>
     )

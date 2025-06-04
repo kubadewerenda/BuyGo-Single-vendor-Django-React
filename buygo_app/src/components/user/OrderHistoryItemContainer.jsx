@@ -1,6 +1,6 @@
 import OrderHistoryItem from './OrderHistoryItem';
 
-const OrderHistoryItemContainer = () => {
+const OrderHistoryItemContainer = ({orderItems}) => {
     return (
         <div className="row" style={{height: "300px", overflow:"auto"}}>
             <div className="col-md-12">
@@ -9,11 +9,7 @@ const OrderHistoryItemContainer = () => {
                 <h5>Order History</h5>
                 </div>
 
-                <OrderHistoryItem />
-                <OrderHistoryItem />
-                <OrderHistoryItem />
-                <OrderHistoryItem />
-
+                {orderItems.map(item => <OrderHistoryItem key={item.id} item={item} />)}
         
 
 
