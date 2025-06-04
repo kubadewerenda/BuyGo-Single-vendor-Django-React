@@ -31,7 +31,8 @@
 
 
 ---
-### Demo available at: https://buygo.onrender.com
+## 🎬Demo available at: https://buygo.onrender.com
+---
 ## 🔐 Test Credentials
 
 | Type | Credential   |
